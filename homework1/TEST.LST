@@ -1,0 +1,50 @@
+Microsoft (R) Macro Assembler Version 6.11		    10/16/25 16:25:58
+test.asm						     Page 1 - 1
+
+
+ 0000				DATA   SEGMENT
+ 0000 48 65 6C 6C 6F 20		PRINT  DB "Hello World!", 0AH, 0DH, '$'
+       57 6F 72 6C 64 21
+       0A 0D 24
+ 000F				DATA   ENDS
+ 0000				STACK  SEGMENT   STACK 
+ 0000  0014 [			       DW  20  DUP(0)
+        0000
+       ]
+ 0028				STACK  ENDS
+ 0000				CODE   SEGMENT
+				ASSUME CS:CODE, DS:DATA, SS:STACK
+ 0000				START:
+ 0000  B8 ---- R		        MOV AX, DATA
+ 0003  8E D8			        MOV DS, AX
+ 0005  BA 0000 R		        MOV DX, OFFSET  PRINT
+ 0008  B4 09			        MOV AH, 09
+ 000A  CD 21			        INT 21H
+ 000C  B4 4C			        MOV AH, 4CH
+ 000E  CD 21			        INT 21H
+ 0010				CODE   ENDS
+				END    START
+Microsoft (R) Macro Assembler Version 6.11		    10/16/25 16:25:58
+test.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODE . . . . . . . . . . . . . .	16 Bit	 0010	  Para	  Private 
+DATA . . . . . . . . . . . . . .	16 Bit	 000F	  Para	  Private 
+STACK  . . . . . . . . . . . . .	16 Bit	 0028	  Para	  Stack	  
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+PRINT  . . . . . . . . . . . . .	Byte	 0000	  DATA	
+START  . . . . . . . . . . . . .	L Near	 0000	  CODE	
+
+	   0 Warnings
+	   0 Errors

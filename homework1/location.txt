@@ -1,0 +1,1 @@
+mount e "E:\study\asm"
