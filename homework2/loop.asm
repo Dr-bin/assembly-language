@@ -1,5 +1,4 @@
 data segment
-    space db ' '  ; 定义空格字符串，$是DOS字符串结束符
     newline db 0dh, 0ah, '$'  ; 定义换行符(回车+换行)
 data ends
 
@@ -20,7 +19,7 @@ print_loop:
     int 21h             ; 调用DOS中断
     
     ; 打印空格
-    mov dx, offset space ; DX指向空格字符串的地址
+    mov dl, ' '
     mov ah, 02h         
     int 21h             ; 调用DOS中断
     

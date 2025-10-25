@@ -1,5 +1,4 @@
 data segment
-    space db ' $'
     newline db 0dh, 0ah, '$'
 data ends
 
@@ -20,8 +19,8 @@ print_loop:
     int 21h
     
     ; 打印空格
-    mov dx, offset space
-    mov ah, 09h
+    mov dl, ' '
+    mov ah, 02h
     int 21h
     
     inc bl
